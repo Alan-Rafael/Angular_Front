@@ -1,0 +1,64 @@
+<mat-card *ngIf="formVisible" class="form-card">
+  <mat-card-header>
+    <mat-card-title>{{ editingFigure ? 'Editar Figura' : 'Adicionar Figura' }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="salvarFigure()" class="figure-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Informação</mat-label>
+        <input matInput placeholder="Informação" [(ngModel)]="informacao" name="informacao" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ano</mat-label>
+        <input matInput placeholder="Ano" [(ngModel)]="ano" name="ano" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Valor</mat-label>
+        <input matInput type="number" placeholder="Valor" [(ngModel)]="valor" name="valor" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tamanho</mat-label>
+        <input matInput type="number" placeholder="Tamanho" [(ngModel)]="tamanho" name="tamanho" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>ImageUrl</mat-label>
+        <input matInput type="text" placeholder="Imagem Url" [(ngModel)]="imageUrl" name="imageUrl" required>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">Salvar</button>
+        <button mat-button color="warn" (click)="resetForm()">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
+
+<div class="cards-container">
+  <div class="card" *ngFor="let figure of getPaginatedFigures()">
+    <div class="card-header">
+      <img [src]="figure.imageUrl" alt="" class="image">
+      <h3 class="card-title">{{ figure.informacao }}</h3>
+    </div>
+    <div class="card-body">
+      <p><strong>Ano:</strong> {{ figure.ano }}</p>
+      <p><strong>Tamanho:</strong> {{ figure.tamanho }}</p>
+      <p><strong>Valor:</strong> {{ figure.valor }}</p>
+      <button class="botao" mat-raised-button color="primary" (click)="onEdit(figure)">Editar</button>
+      <button class="botao" mat-raised-button color="warn" (click)="onDelete(figure)">Remover</button>
+    </div>
+    <button class="botao-carrinho" mat-raised-button style="color: green;" (click)="onAddToCart(figure.id)">Adicionar ao Carrinho</button>
+
+  </div>
+</div>
+
+<div class="paginacao">
+  <mat-paginator (page)="handlePageEvent($event)" [length]="figures.length" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" aria-label="Selecione a página">
+  </mat-paginator>
+</div>

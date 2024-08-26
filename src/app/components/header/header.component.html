@@ -1,0 +1,23 @@
+<mat-toolbar class="mat-toolbar custom-toolbar">
+
+  <button mat-icon-button class="custom-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a (click)="navigateHome()" id="my-app">My App</a>
+  <span class="example-spacer"></span>
+  <a routerLink="/login" id="entre" *ngIf="!isAuthenticate()">Entre</a>
+
+  <a class="sair" (click)="logout()" id="sair" *ngIf="isAuthenticate()">Sair</a>
+
+  <button *ngIf="isAuthenticate()" mat-icon-button class="custom-icon" (click)="toggleForm()" aria-label="Example icon-button with add icon">
+    <mat-icon >add</mat-icon>
+  </button>
+
+  <a routerLink="carrinho" *ngIf="isAuthenticate()">
+    <button mat-icon-button class="custom-icon"
+        aria-label="Example icon-button with shopping cart icon">
+        <mat-icon>shopping_cart</mat-icon>
+   </button>
+</a>
+
+</mat-toolbar>

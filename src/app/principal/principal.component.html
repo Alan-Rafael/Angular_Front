@@ -1,0 +1,110 @@
+<div>
+  <mat-card class="usuario-card">
+    <mat-card-header>
+      <mat-card-title>Cadastro de Usuário</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmitUserAndEndereco()" #usuarioForm="ngForm" class="usuario-form">
+        <!-- Dados do Usuário -->
+        <mat-form-field appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="Nome completo" name="nome" [(ngModel)]="usuario.nome" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" placeholder="Senha" name="senha" [(ngModel)]="usuario.senha" required>
+        </mat-form-field>
+
+        <!-- Seleção de Endereço -->
+
+        <mat-card-header>
+          <mat-card-title>Endereço</mat-card-title>
+        </mat-card-header>
+          <!-- Endereço -->
+          <mat-form-field appearance="fill">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="estado" name="estado" required>
+              <mat-option *ngFor="let estado of estados" [value]="estado">
+                {{ estado }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <mat-select [(ngModel)]="cidade" name="cidade" required>
+              <mat-option *ngFor="let cidade of cidades" [value]="cidade">
+                {{ cidade }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input matInput placeholder="CEP" name="cep" [(ngModel)]="cep" required>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input matInput placeholder="Bairro" name="bairro" [(ngModel)]="bairro" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Rua</mat-label>
+            <input matInput placeholder="Rua" name="rua" [(ngModel)]="rua" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Número</mat-label>
+            <input matInput type="number" placeholder="Número" name="numero" [(ngModel)]="numero" required>
+          </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+          <button mat-button color="warn" type="button" (click)="resetForm()">Cancelar</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+<!-- <form (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Número" name="numero" [(ngModel)]="numero" class="form-control" >
+  <input type="text" placeholder="Rua" name="rua" [(ngModel)]="rua" class="form-control" >
+  <input type="text" placeholder="Bairro" name="bairro" [(ngModel)]="bairro" class="form-control" >
+  <input type="text" placeholder="Cidade" name="cidade" [(ngModel)]="cidade" class="form-control" >
+  <input type="text" placeholder="Cep" name="cep" [(ngModel)]="cep" class="form-control" >
+  <input type="text" placeholder="Estado" name="estado" [(ngModel)]="estado" class="form-control" >
+  <input type="submit" value="cadastrar" class="btn btn-success"> -->
+<!--  <input type="button" value="alterar"  class="btn btn-primary">-->
+<!--  <input type="button" value="remover"  class="btn btn-danger">-->
+<!--  <input type="button" value="cancelar"  class="btn btn-secondary">-->
+<!-- </form> -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Número</th>
+      <th>Rua</th>
+      <th>Bairro</th>
+      <th>Cidade</th>
+      <th>CEP</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let endereco of enderecos">
+      <td>{{endereco.numero}}</td>
+      <td>{{endereco.rua}}</td>
+      <td>{{endereco.bairro}}</td>
+      <td>{{endereco.cidade}}</td>
+      <td>{{endereco.cep}}</td>
+      <td>{{endereco.estado}}</td>
+    </tr>
+  </tbody>
+</table>

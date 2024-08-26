@@ -1,0 +1,41 @@
+.usuario-card {
+  max-width: 400px; /* Tamanho máximo do cartão */
+  margin: 20px auto; /* Centralizar o cartão */
+  padding: 16px; /* Adicionar preenchimento */
+  height: auto; /* Altura ajustável */
+}
+
+.usuario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Espaçamento entre os campos */
+  min-height: 300px; /* Definir altura mínima para o formulário */
+}
+
+.mat-form-field {
+  width: 100%; /* Garantir que os campos usem toda a largura disponível */
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between; /* Espaçamento entre os botões */
+  margin-top: 20px; /* Espaço acima dos botões */
+}
+
+div {
+  width: 100%;
+  max-width: 400px; /* Tamanho máximo do div */
+  margin: 20px auto; /* Centralizar o div */
+}
+
+img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+form {
+  width: 100%; /* Ajustar a largura do formulário para caber no cartão */
+  margin: 0 auto;
+  text-align: center;
+  min-height: 300px; /* Definir altura mínima para o formulário */
+}

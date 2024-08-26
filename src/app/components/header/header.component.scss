@@ -1,0 +1,50 @@
+
+.custom-toolbar {
+
+  background-color: #23263a;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.example-icon {
+  margin: 0 8px;
+}
+.sair{
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+
+
+}
+
+.example-spacer {
+  flex: 1;
+}
+
+
+.custom-icon mat-icon {
+  color: rgb(255, 255, 255);
+}
+
+.custom-text {
+  color: #ffffff;
+}
+
+#entre{
+  font-size: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+
+
+}
+
+#my-app{
+
+   text-decoration: none;
+  color: #ffffff;
+  left: 4rem;
+}

@@ -1,0 +1,29 @@
+<div class="div-all">
+  <h3>Faca login</h3>
+  <div class="cards-container">
+    <div class="card" *ngFor="let figure of getPaginatedFigures()">
+      <div class="card-header">
+        <img [src]="figure.imageUrl || 'https://gdoor.com.br/wp-content/uploads/2022/02/administrar-uma-loja-de-roupa.png'" alt="" class="image">
+        <h3 class="card-title">{{ figure.informacao }}</h3>
+      </div>
+      <div class="card-body">
+        <p><strong>Ano:</strong> {{ figure.ano }}</p>
+        <p><strong>Tamanho:</strong> {{ figure.tamanho }}</p>
+        <p><strong>Valor:</strong> {{ figure.valor }}</p>
+          <!-- <a routerLink="/login" id="entre">
+                  <button class="botao" mat-raised-button color="warn" >Add Carrinho</button>
+          </a>
+          <a routerLink="/login" id="entre">
+            <button class="botao" mat-raised-button color="primary" >Comprar agora</button>
+          </a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="paginacao">
+  <mat-paginator (page)="handlePageEvent($event)" [length]="figures.length" [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions" aria-label="Selecione a página">
+  </mat-paginator>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="info-container">
+    <h3>Digite seu usuário e senha para iniciar a sessão</h3>
+  </div>
+
+  <div class="form-container">
+    <form  class="form" (ngSubmit)="login()">
+      <input  name="username" type="text"   [(ngModel)]="username" placeholder="Usuário" required>
+      <input name="password" type="password" [(ngModel)]="password" placeholder="Senha" required>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+    <p>ou</p>
+    <a routerLink="/cadastroDeUsuario">Criar conta</a>
+  </div>
+</div>
